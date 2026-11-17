@@ -115,8 +115,37 @@ def main():
             batch_numbers.append(int(suffix))
     number = max([1, *batch_numbers]) + 1
     selected, counts = choose(rows, used, number, args.per_chapter, args.seed)
+    selected_ids = {r["id"].strip() for r in selected}
+    totals = defaultdict(int)
+    used_by_chapter = defaultdict(int)
+    remaining_by_chapter = defaultdict(int)
+    for row in rows:
+        chapter = row["chapter"].strip()
+        totals[chapter] += 1
+        if row["id"].strip() in used:
+            used_by_chapter[chapter] += 1
+        elif row["id"].strip() not in selected_ids:
+            remaining_by_chapter[chapter] += 1
+
+    def chapter_key(chapter):
+        return (0, int(chapter)) if chapter.isdigit() else (1, chapter)
+
+    def print_progress():
+        print("\nDialogue sampling progress (after this run):")
+        print(f"{'Chapter':<10} {'Total':>7} {'Previously':>11} {'New':>7} {'Remaining':>11}")
+        print("-" * 51)
+        for chapter in sorted(totals, key=chapter_key):
+            print(f"{chapter:<10} {totals[chapter]:>7} {used_by_chapter[chapter]:>11} "
+                  f"{counts.get(chapter, 0):>7} {remaining_by_chapter[chapter]:>11}")
+        print("-" * 51)
+        print(f"{'TOTAL':<10} {sum(totals.values()):>7} {sum(used_by_chapter.values()):>11} "
+              f"{len(selected):>7} {sum(remaining_by_chapter.values()):>11}")
+        print("Previously = selected in earlier batches (not necessarily reviewed).")
+        print("Remaining = dialogue records not yet selected for manual checking.")
+
     if not selected:
         print("No new records remain. No file created.")
+        print_progress()
         return
     output = args.output_dir / f"validation_batch_{number:02d}.csv"
     # Exclusive creation avoids overwriting previous manual work.
@@ -132,6 +161,7 @@ def main():
     print(f"Created: {output} ({len(selected)} NEW dialogue records)")
     print(f"Previously selected IDs excluded: {len(used)}")
     print("Selected per chapter:", ", ".join(f"{c}: {n}" for c, n in counts.items()))
+    print_progress()
     print("Review this batch in Excel. Keep the file for future runs.")
     print("IMPORTANT: Always pass --previous for original Batch 1, and keep older batch CSVs in output-dir.")
 
