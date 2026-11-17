@@ -16,6 +16,21 @@ I used Python to find dialogues from the book and Gephi to create graphs showing
 4. **Manual Checking:** I checked 51 dialogue records from all 17 chapters to find mistakes in the automatically collected data.
 5. **Making Graphs:** I used Gephi to create two character networks.
 
+## Improved Dialogue Sampling
+
+I created an improved Python program called `validate_dialogues_batches.py` to select new dialogue samples without repeating previously selected records.
+
+The program selects 3 new dialogues from each of the 17 chapters and shows how many dialogues are still available for checking.
+
+So far, I have selected 153 dialogues in three batches:
+- Batch 1: 51 dialogues (manually checked)
+- Batch 2: 51 dialogues (not yet checked)
+- Batch 3: 51 dialogues (not yet checked)
+
+Out of 2,391 dialogue candidates, 2,238 are still available for future checking.
+
+This improvement allows me to gradually check more dialogues without repeating earlier work.
+
 ## What the Graphs Show
 
 In the graphs:
