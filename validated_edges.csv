@@ -1,0 +1,31 @@
+﻿Source,Target,Weight,Type,Evidence
+Dudley,Petunia,1,Directed,manual_review_direct_sample
+Dumbledore,McGonagall,1,Directed,manual_review_direct_sample
+Fred,Molly,1,Directed,manual_review_direct_sample
+Hagrid,Harry,4,Directed,manual_review_direct_sample
+Hagrid,Ron,2,Directed,manual_review_direct_sample
+Hagrid,Ronan,1,Directed,manual_review_direct_sample
+Hagrid,Unnamed goblin,1,Directed,manual_review_direct_sample
+Harry,Hagrid,4,Directed,manual_review_direct_sample
+Harry,Madam Pomfrey,1,Directed,manual_review_direct_sample
+Harry,Oliver Wood,1,Directed,manual_review_direct_sample
+Harry,Ron,3,Directed,manual_review_direct_sample
+Harry,Vernon,3,Directed,manual_review_direct_sample
+Hermione,Hagrid,1,Directed,manual_review_direct_sample
+Hermione,Harry,1,Directed,manual_review_direct_sample
+Madam Pomfrey,Harry,1,Directed,manual_review_direct_sample
+McGonagall,Harry,1,Directed,manual_review_direct_sample
+Molly,Ron,1,Directed,manual_review_direct_sample
+Neville,Harry,1,Directed,manual_review_direct_sample
+Percy,Harry,1,Directed,manual_review_direct_sample
+Petunia,Harry,1,Directed,manual_review_direct_sample
+Quirrell,Harry,1,Directed,manual_review_direct_sample
+Ron,Hagrid,1,Directed,manual_review_direct_sample
+Ron,Harry,2,Directed,manual_review_direct_sample
+Ron,Hermione,1,Directed,manual_review_direct_sample
+Ron,Neville,1,Directed,manual_review_direct_sample
+Snape,Harry,1,Directed,manual_review_direct_sample
+Sorting Hat,Harry,1,Directed,manual_review_direct_sample
+Unidentified Weasley twin,Harry,1,Directed,manual_review_direct_sample
+Vernon,Dudley,1,Directed,manual_review_direct_sample
+Vernon,Unnamed Wizard,1,Directed,manual_review_direct_sample
